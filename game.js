@@ -2,11 +2,16 @@ const hands = [...document.querySelectorAll('.select img')]
 const startGameButton = document.querySelector('.start')
 const information = document.querySelector('.information')
 
+
 const summaryOfGame = {
   amount: 0,
   wins: 0,
   losses: 0,
   draws: 0,
+}
+function computerChoice() {
+  const index = Math.floor(Math.random() * 3)
+  choicesOfHand.computerHand = hands[index].dataset.option
 }
 
 const choicesOfHand = {
@@ -15,7 +20,9 @@ const choicesOfHand = {
 }
 function startGame() {
   if (!choicesOfHand.playerHand) {
-    information.textContent = "Choose one of the hands !!"
+    return information.textContent = "Choose one of the hands !!"
+  } else {
+    computerChoice()
   }
 }
 function selectHand() {
