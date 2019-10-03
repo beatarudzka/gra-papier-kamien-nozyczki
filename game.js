@@ -40,12 +40,15 @@ function showResult(player, computer, result) {
   if (result === "win") {
     const wins = document.querySelector('p.wins span')
     wins.textContent = ++summaryOfGame.wins
+    resultOfCurrentGame.textContent = "You are winner!!"
   } else if (result === "loss") {
     const loss = document.querySelector('p.losses span')
     loss.textContent = ++summaryOfGame.losses
+    resultOfCurrentGame.textContent = " You lost a game"
   } else if (result === "draw") {
     const draw = document.querySelector('p.draws span')
     draw.textContent = ++summaryOfGame.draws
+    resultOfCurrentGame.textContent = "You got a draw"
   }
 }
 function startGame() {
