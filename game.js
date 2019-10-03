@@ -37,6 +37,16 @@ function showResult(player, computer, result) {
   resultOfCurrentGame.textContent = result
   const numbers = document.querySelector('p.numbers span')
   numbers.textContent = ++summaryOfGame.amount
+  if (result === "win") {
+    const wins = document.querySelector('p.wins span')
+    wins.textContent = ++summaryOfGame.wins
+  } else if (result === "loss") {
+    const loss = document.querySelector('p.losses span')
+    loss.textContent = ++summaryOfGame.losses
+  } else if (result === "draw") {
+    const draw = document.querySelector('p.draws span')
+    draw.textContent = ++summaryOfGame.draws
+  }
 }
 function startGame() {
   if (!choicesOfHand.playerHand) {
