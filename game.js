@@ -35,6 +35,8 @@ function showResult(player, computer, result) {
   computerResult.textContent = computer
   const resultOfCurrentGame = document.querySelector('[data-summary="who-win"]')
   resultOfCurrentGame.textContent = result
+  const numbers = document.querySelector('p.numbers span')
+  numbers.textContent = ++summaryOfGame.amount
 }
 function startGame() {
   if (!choicesOfHand.playerHand) {
