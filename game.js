@@ -28,13 +28,21 @@ function checkResult(player, computer) {
     return "win"
   } else return "loss"
 }
+function showResult(player, computer, result) {
+  const playerResult = document.querySelector('[data-summary="your-choice"]')
+  playerResult.textContent = player
+  const computerResult = document.querySelector('[ data-summary="ai-choice"]')
+  computerResult.textContent = computer
+  const resultOfCurrentGame = document.querySelector('[data-summary="who-win"]')
+  resultOfCurrentGame.textContent = result
+}
 function startGame() {
   if (!choicesOfHand.playerHand) {
     return information.textContent = "Choose one of the hands !!"
   } else {
     computerChoice()
     const gameResult = checkResult(choicesOfHand.playerHand, choicesOfHand.computerHand)
-    console.log(gameResult)
+    showResult(choicesOfHand.playerHand, choicesOfHand.computerHand, gameResult)
   }
 }
 
