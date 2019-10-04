@@ -34,7 +34,6 @@ function showResult(player, computer, result) {
   const computerResult = document.querySelector('[ data-summary="ai-choice"]')
   computerResult.textContent = computer
   const resultOfCurrentGame = document.querySelector('[data-summary="who-win"]')
-  resultOfCurrentGame.textContent = result
   const numbers = document.querySelector('p.numbers span')
   numbers.textContent = ++summaryOfGame.amount
   if (result === "win") {
@@ -51,6 +50,10 @@ function showResult(player, computer, result) {
     resultOfCurrentGame.textContent = "You got a draw"
   }
 }
+
+function endGame() {
+  document.querySelector(`[data-option="${choicesOfHand.playerHand}"]`).style.boxShadow = ''
+}
 function startGame() {
   if (!choicesOfHand.playerHand) {
     return information.textContent = "Choose one of the hands !!"
@@ -58,6 +61,7 @@ function startGame() {
     computerChoice()
     const gameResult = checkResult(choicesOfHand.playerHand, choicesOfHand.computerHand)
     showResult(choicesOfHand.playerHand, choicesOfHand.computerHand, gameResult)
+    endGame()
   }
 }
 
